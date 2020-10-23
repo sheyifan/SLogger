@@ -1,0 +1,8 @@
+/* your styles go here */
+@font-face {
+    font-family: "TsangerJinKai05-6763 W05";
+    src: url('../fonts/zhengkai.ttf');
+}
+body {
+    font-family: Consolas, "微软雅黑"
+}
