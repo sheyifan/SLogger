@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+// 2020-10-23 23:48 sheyifan Issue: put require to top
+const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 
 function createWindow () {
@@ -34,16 +35,10 @@ app.whenReady().then(() => {
 		// dock icon is clicked and there are no other windows open.
 		if (BrowserWindow.getAllWindows().length === 0) createWindow()
 	})
-
-  	const { ipcMain } = require('electron')
+	// 2020-10-23 23:48 sheyifan Issue: remove synchronize IPC
 	ipcMain.on('asynchronous-message', (event, arg) => {
-	console.log(arg) // prints "ping"
-	event.reply('asynchronous-reply', 'pong')
-	})
-
-	ipcMain.on('synchronous-message', (event, arg) => {
-	console.log(arg) // prints "ping"
-	event.returnValue = 'pong'
+	  console.log(arg) // prints message got
+	  event.sender.send('asynchronous-reply', 'pong')
 	})
 })
 
