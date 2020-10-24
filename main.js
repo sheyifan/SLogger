@@ -2,13 +2,12 @@
 // 2020-10-23 23:48 sheyifan Issue: put 'require' to top
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
-// 2020-10-24 11:11 sheyifan Issue: import module about file stream processing
 const fs = require('fs')
+
 const sf = require('./utils/sfile')
 
 function createWindow () {
 	const browserWindowProfile = sf.toJson("./profile/browserwindow.json")
-	console.log(browserWindowProfile)
 
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
@@ -25,9 +24,19 @@ function createWindow () {
 	mainWindow.loadFile('web/login.html')
 
 	// Open the DevTools.
-	mainWindow.webContents.openDevTools()
-
-	console.log("loading" + mainWindow)
+	let webContents = mainWindow.webContents
+	webContents.openDevTools()
+	// 2020-10-24 15:39 sheyifan Issue: event 'dom-ready' will emitted each time DOM finished rendering
+	webContents.on('dom-ready', (event) => {
+		// 2020-10-24 16:05 sheyifan Issue: get file path of HTML in main process
+		console.log(webContents.getURL())
+		if(webContents.getURL().endsWith('index.html')) {
+			let js = fs.readFileSync("./data/syf-chart.js")
+			// 2020-10-24 16:50 sheyifan Issue: execute javascript in render process with the following.
+			// Can use complete version of Node.js API in main.js
+			webContents.executeJavaScript(js.toString())
+		}
+	})
 }
 
 // This method will be called when Electron has finished
