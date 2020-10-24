@@ -1,4 +1,3 @@
-console.log('main' + new Date().getSeconds() + "s, " + new Date().getMilliseconds() + "ms.")
 var dataRadio = {
 	labels: ["周一", "周二", "周三", "周四", "周五"],
 	datasets: [

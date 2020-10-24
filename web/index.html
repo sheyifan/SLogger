@@ -140,7 +140,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-user-1"></i></div><strong>今日事项</strong>
                     </div>
-                    <div class="number dashtext-1">2/15</div>
+                    <div class="number dashtext-1" id="issue">2/15</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-1"></div>
@@ -153,7 +153,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-contract"></i></div><strong>T0事项</strong>
                     </div>
-                    <div class="number dashtext-2">2/9</div>
+                    <div class="number dashtext-2" id="T0-issue">2/9</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-2"></div>
@@ -166,7 +166,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-paper-and-pencil"></i></div><strong>T1事项</strong>
                     </div>
-                    <div class="number dashtext-3">0/3</div>
+                    <div class="number dashtext-3" id="T1-issue">0/3</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-3"></div>
@@ -179,7 +179,7 @@
                     <div class="title">
                       <div class="icon"><i class="icon-writing-whiteboard"></i></div><strong>T2事项</strong>
                     </div>
-                    <div class="number dashtext-4">0/3</div>
+                    <div class="number dashtext-4" id="T2-issue">0/3</div>
                   </div>
                   <div class="progress progress-template">
                     <div role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-template dashbg-4"></div>
@@ -518,8 +518,9 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="js/charts-home.js"></script>
+	<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+	<!-- the flllowing script is moved from HTML to main.js -->
+    <!-- <script src="js/charts-home.js"></script> -->
 	<script src="js/front.js"></script>
   </body>
 </html>

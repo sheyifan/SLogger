@@ -35,11 +35,11 @@ a {
 }
 
 .dashtext-2 {
-  color: darkred !important;
+  color: #CF53F9 !important;
 }
 
 .dashtext-3 {
-  color: #be9117 !important;
+  color: #DB6574 !important;
 }
 
 .dashtext-4 {
@@ -51,7 +51,7 @@ a {
 }
 
 .dashbg-2 {
-  background: darkred;
+  background: #CF53F9;
 }
 
 .dashbg-3 {
