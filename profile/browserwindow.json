@@ -1,0 +1,8 @@
+{
+	"width": 1053,
+	"height": 620,
+	"webPreferences": {
+		"nodeIntegration": false
+	},
+	"resizable": true
+}

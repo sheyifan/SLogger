@@ -1,18 +1,24 @@
 // Modules to control application life and create native browser window
-// 2020-10-23 23:48 sheyifan Issue: put require to top
+// 2020-10-23 23:48 sheyifan Issue: put 'require' to top
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
+// 2020-10-24 11:11 sheyifan Issue: import module about file stream processing
+const fs = require('fs')
+const sf = require('./utils/sfile')
 
 function createWindow () {
+	const browserWindowProfile = sf.toJson("./profile/browserwindow.json")
+	console.log(browserWindowProfile)
+
 	// Create the browser window.
 	const mainWindow = new BrowserWindow({
-		width: 1053,
-		height: 620,
+		width: browserWindowProfile.width,
+		height: browserWindowProfile.height,
 		webPreferences: {
-		preload: path.join(__dirname, 'preload.js'),
-		nodeIntegration: false
+			preload: path.join(__dirname, 'preload.js'),
+			nodeIntegration: browserWindowProfile.webPreferences.nodeIntegration
 		},
-		resizable: true
+		resizable: browserWindowProfile.resizable
 	})
 
 	// and load the index.html of the app.
